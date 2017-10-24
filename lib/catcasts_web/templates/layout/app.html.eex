@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
 
-        <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-
-            <script>
+  <script>
       $(document).foundation();
-          </script>
+  </script>
 
-            </body>
+  <body>
+    <div class="container">
+    <%= render "_navigation.html", conn: @conn %>
+      <header class="header">
+        <nav role="navigation">
+          <ul class="nav nav-pills pull-right">
+            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+          </ul>
+        </nav>
+        <span class="logo"></span>
+      </header>
+
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+
+    </div> <!-- /container -->
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
 </html>
 
-<header class="header">
-  <nav role="navigation">
-    <ul class="nav nav-pills pull-right">
-      <li>
-        <a href="http://www.phoenixframework.org/docs">Get Started</a>
-      </li>
-    </ul>
-  </nav>
-  <span class="logo"></span>
-</header>
 
+<body>
+  <div class="container">
+
+</body>
+</html>
